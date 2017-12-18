@@ -70,7 +70,7 @@ class Tracker(object):
 
     def publishInfo(self, obj):
         multilayout = MultiArrayLayout(
-        dim = MultiArrayDimension("XYWHF",5,1),
+        dim = (MultiArrayDimension("XYWHF",5,1),MultiArrayDimension("XYWHF",5,1)),
         data_offset = 0
         )
 

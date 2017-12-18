@@ -8,8 +8,9 @@ Takes in the position of the quadcopter and any obstacles, then calculates how t
 import rospy
 from std_msgs.msg import Int16MultiArray
 
-def callback(data):
-	pass
+def callback(msg):
+	print msg.data
+	# pass
 	# print rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.data)
 
 class quad(object):
