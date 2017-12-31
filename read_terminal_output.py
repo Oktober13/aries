@@ -109,7 +109,6 @@ if __name__ == '__main__':
     quad_info = rospy.Publisher('redobject', Int16MultiArray, queue_size=10)
     obst_info = rospy.Publisher('blueobject', Int16MultiArray, queue_size=10)
     rospy.init_node('pixynode')
-    # rospy.init_node('pixynode_quad', anonymous=True)
 
     t = Tracker()
 
