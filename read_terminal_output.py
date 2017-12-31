@@ -78,9 +78,16 @@ class Tracker(object):
             layout = multilayout,
             data = [self.seenObjects[obj].x, self.seenObjects[obj].y, self.seenObjects[obj].width, self.seenObjects[obj].height, self.seenObjects[obj].lastseenframe]
         )
-
-        object1_info.publish(msg)
-        print "Published: ", (msg.data)
+        if (obj == 1) or (obj == 2):
+            if obj == 1:
+                quad_info.publish(msg)
+                rostopic = "/redobject"
+            elif obj == 2:
+                obst_info.publish(msg)
+                rostopic = "/blueobject"
+            print "Published: ", (msg.data), " to ", rostopic
+        else:
+            print "Unidentified color signature."
         return
 
 def follow(thefile):
@@ -99,8 +106,10 @@ def follow(thefile):
 
 
 if __name__ == '__main__':
-    object1_info = rospy.Publisher('redobject', Int16MultiArray, queue_size=10)
-    rospy.init_node('pixynode', anonymous=True)
+    quad_info = rospy.Publisher('redobject', Int16MultiArray, queue_size=10)
+    obst_info = rospy.Publisher('blueobject', Int16MultiArray, queue_size=10)
+    rospy.init_node('pixynode')
+    # rospy.init_node('pixynode_quad', anonymous=True)
 
     t = Tracker()
 
