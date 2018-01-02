@@ -4,6 +4,7 @@ Code repo for OSS
 Dependencies:
 - hello_pixy package from [CharmedLabs](https://github.com/charmedlabs/pixy)
 - libpixyusb library
+- Boost library
 - ROS (compatible with kinetic kame)
 - Ubuntu 16.04
 
